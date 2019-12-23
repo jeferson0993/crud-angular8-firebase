@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Lista de Estudantes</h1>
+  <a routerLink="/register-student" class="btn btn-success" *ngIf="hideWhenNoStudent">
+    <i class="fas fa-plus custom-fa-plus"></i>
+    Cadastrar Estudante
+  </a>
+</div>
+
+<div class="pricing-header mx-auto">
+
+  <div class="no-data text-center" *ngIf="preLoader">
+    <img src="assets/preloader.gif" class="preloader-icon" alt="No student">
+  </div>
+
+  <div class="no-data text-center" *ngIf="noData">
+    <img src="assets/no-student.svg" class="nodata-msg" alt="No student">
+    <p class="nodata-msg">Nenhum estudante cadastrado!</p>
+    <a routerLink="/register-student" class="btn btn-success">
+      <i class="fas fa-plus custom-fa-plus"></i>
+      Cadastrar Estudante
+    </a>
+  </div>
+
+  <div class="table-responsive" *ngIf="hideWhenNoStudent">
+    <table class="table table-bordered table-responsive-sm table-responsive-md table-responsive-lg">
+      <thead>
+        <tr>
+          <th scope="col">Nome</th>
+          <th scope="col">Curso</th>
+          <th scope="col">Semestre</th>
+          <th class="text-center" scope="col">Editar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of Student | paginate: { itemsPerPage: 7, currentPage: p }; let i = index;">
+          <td>{{student.name}}</td>
+          <td>{{student.course}}</td>
+          <td>{{student.sem}}</td>
+          <td class="text-center action-block">
+            <i class="far fa-edit" routerLink="/edit-student/{{student.$key}}"></i>
+            <i class="far fa-trash-alt" (click)="deleteStudent(student)"></i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <pagination-controls (pageChange)="p = $event" autoHide="true" responsive="true"></pagination-controls>
+
+</div>

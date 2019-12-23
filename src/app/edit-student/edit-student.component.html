@@ -1,0 +1,44 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Editar Detalhes do Estudante </h1>
+  <div class="btn-toolbar mb-2 mb-md-0">
+    <div class="btn-group">
+      <button class="btn btn-sm btn-outline-secondary" (click)="goBack()">Voltar</button>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="pricing-header form-block mx-auto">
+
+      <form [formGroup]="editForm" (ngSubmit)="updateForm()" novalidate>
+        <div class="row">
+          <div class="col-lg-5 col-md-12 col-sm-12">
+            <div class="row">
+              <div class="col-md-12 mb-3">
+                <label>Nome</label>
+                <input type="text" formControlName="name" class="form-control" required>
+                <p *ngIf="name.touched && name.invalid" class="error"><sup>*</sup>Digite o nome</p>
+                <p *ngIf="name.errors?.minlength" class="error"><sup>*</sup>O nome precisa ter pelo menos 3 letras</p>
+              </div>
+              <div class="col-md-12 mb-3">
+                <label>Curso</label>
+                <input type="text" formControlName="course" class="form-control">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 mb-3">
+                <label>Semestre</label>
+                <input type="text" formControlName="sem" class="form-control">
+              </div>
+            </div>
+            <div class="form-group text-right">
+              <button type="submit" class="btn btn-success btn-block" [disabled]="!editForm.valid">Salvar Alterações</button>
+            </div>
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>

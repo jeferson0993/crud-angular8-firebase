@@ -1,0 +1,40 @@
+<div class="pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Cadastro de Estudante</h1>
+  <p class="custom-text">Um aplicativo CRUD de demonstração para <strong>o sistema de gerenciamento de registros de estudantes</strong> construído com <strong>Angular8
+      and Firebase Real time database</strong>.</p>
+</div>
+
+<form [formGroup]="studentForm" (ngSubmit)="submitStudentData()" novalidate>
+  <div class="row">
+    <div class="col-lg-5 col-md-12 col-sm-12">
+      <div class="row">
+
+        <div class="col-md-12 mb-3">
+          <label>Nome</label>
+          <input type="text" formControlName="name" class="form-control" required>
+          <p *ngIf="name.touched && name.invalid" class="error"><sup>*</sup>Digite o nome</p>
+          <p *ngIf="name.errors?.minlength" class="error"><sup>*</sup>O Nome deve conter pelo menos 3 caracteres</p>
+        </div>
+
+        <div class="col-md-12 mb-3">
+          <label>Curso</label>
+          <input type="text" formControlName="course" class="form-control">
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="col-md-12 mb-3">
+          <label>Semestre</label>
+          <input type="text" formControlName="sem" class="form-control" required>
+        </div>
+      </div>
+
+      <div class="form-group text-right">
+        <button type="button" class="btn btn-secondary gap-right" (click)="ResetForm()">Cancelar</button>
+        <button type="submit" class="btn btn-success" [disabled]="!studentForm.valid">Cadastrar</button>
+      </div>
+
+    </div>
+  </div>
+</form>
