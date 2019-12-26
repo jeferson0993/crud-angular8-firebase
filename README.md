@@ -2,7 +2,7 @@
 
 Um aplicativo CRUD de demonstração para um sistema de gerenciamento de registros de estudantes, construído com Angular 8 e o banco de dados NoSQL em nuvem Firebase Real-time. 
 
-Você pode ver o resultado do projeto em https://jeferson0993.github.io/#/
+Você pode ver o resultado do projeto em [DEMO](https://jeferson0993.github.io/crud-angular8-firebase/).
 
 ---
 
