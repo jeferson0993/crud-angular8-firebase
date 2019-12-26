@@ -24,13 +24,13 @@ export class CrudService {
 
   
   GetStudent(id: string) {
-    this.studentRef = this.db.object('students-list/' + id);
+    this.studentRef = this.db.object('crud-angular8/' + id);
     return this.studentRef;
   }
 
   
   GetStudentsList() {
-    this.studentsRef = this.db.list('students-list');
+    this.studentsRef = this.db.list('crud-angular8');
     return this.studentsRef;
   }  
 
@@ -45,7 +45,7 @@ export class CrudService {
 
   
   DeleteStudent(id: string) { 
-    this.studentRef = this.db.object('students-list/'+id);
+    this.studentRef = this.db.object('crud-angular8/'+id);
     this.studentRef.remove();
   }
   
