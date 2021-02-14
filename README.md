@@ -12,7 +12,7 @@ Você pode ver o resultado do projeto em [DEMO](https://jeferson0993.github.io/c
 ## Autor
 
 * [ **Jeferson Ferreira** ](https://github.com/jeferson0993) - *Estudante universitário*.
-* jeferson@ferreirasilva.ml
+* jeferson0993@gmail.com
 
 ***
 
